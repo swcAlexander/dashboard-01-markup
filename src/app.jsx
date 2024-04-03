@@ -1,33 +1,28 @@
-import { useState } from 'preact/hooks'
-import preactLogo from './assets/preact.svg'
-import viteLogo from '/vite.svg'
-import './app.css'
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import CustomersPage from './pages/CustomersPage';
+import PromotePage from './pages/PromotePage';
+import ProductPage from './pages/ProductPage';
+import DashboardPage from './pages/DashboardPage';
+import IncomePage from './pages/IncomePage';
+import HelpPage from './pages/HelpPage';
+import { Layout } from './componens/layout/Layout';
 
-export function App() {
-  const [count, setCount] = useState(0)
-
+function App() {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} class="logo" alt="Vite logo" />
-        </a>
-        <a href="https://preactjs.com" target="_blank">
-          <img src={preactLogo} class="logo preact" alt="Preact logo" />
-        </a>
-      </div>
-      <h1>Vite + Preact</h1>
-      <div class="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/app.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p class="read-the-docs">
-        Click on the Vite and Preact logos to learn more
-      </p>
-    </>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<DashboardPage />} />
+          <Route path="product" element={<ProductPage />} />
+          <Route path="customers" element={<CustomersPage />} />
+          <Route path="income" element={<IncomePage />} />
+          <Route path="promote" element={<PromotePage />} />
+          <Route path="help" element={<HelpPage />} />
+        </Route>
+      </Routes>
+    </Router>
+  );
 }
+
+export default App;
