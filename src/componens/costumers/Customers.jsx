@@ -3,7 +3,7 @@ import ReactPaginate from 'react-paginate';
 import customersData from './customers.json';
 
 function Customers() {
-  const [data, setData] = useState([customersData]);
+  const [data, setData] = useState(customersData);
   const [pageNumber, setPageNumber] = useState(0);
   const usersPerPage = 8;
   const pagesVisited = pageNumber * usersPerPage;
@@ -28,6 +28,16 @@ function Customers() {
 
   return (
     <div>
+      <div>
+        <div>
+          <h2>All Customers</h2>
+          <span>Active Members</span>
+        </div>
+        <div className="search-container">
+          <input type="text" placeholder="Search" />
+          <span className="search-icon">🔍</span>
+        </div>
+      </div>
       <table>
         <thead>
           <tr>
