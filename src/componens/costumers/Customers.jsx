@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import customersData from './customers.json';
+import './customers.scss';
 
 function Customers() {
   const [data, setData] = useState(customersData);
@@ -27,29 +28,28 @@ function Customers() {
   };
 
   return (
-    <div>
-      <div>
-        <div>
-          <h2>All Customers</h2>
-          <span>Active Members</span>
+    <div className='customers-section'>
+      <div className='costumer-section__header'>
+        <div className='customers-section__container'>
+          <h2 className='customers-section__title'>All Customers</h2>
+          <span  className='customers-section__span'>Active Members</span>
         </div>
         <div className="search-container">
-          <input type="text" placeholder="Search" />
-          <span className="search-icon">🔍</span>
+          <input  className='search-input' type="text" placeholder="Search" />
         </div>
       </div>
-      <table>
-        <thead>
-          <tr>
-            <th>Customer Name</th>
-            <th>Company</th>
-            <th>Phone Number</th>
-            <th>Email</th>
-            <th>Country</th>
-            <th>Status</th>
+      <table className='customers-section__table'>
+        <thead className='customers-section__table-thead'>
+          <tr className='customers-section__table-row'>
+            <th className='customers-section__table-header'>Customer Name</th>
+            <th className='customers-section__table-header'>Company</th>
+            <th className='customers-section__table-header'>Phone Number</th>
+            <th className='customers-section__table-header'>Email</th>
+            <th className='customers-section__table-header'>Country</th>
+            <th className='customers-section__table-header'>Status</th>
           </tr>
         </thead>
-        <tbody>{displayData}</tbody>
+        <tbody className='customers-section__table-body'>{displayData}</tbody>
       </table>
       <ReactPaginate
         previousLabel={'Previous'}

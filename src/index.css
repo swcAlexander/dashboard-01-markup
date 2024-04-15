@@ -22,6 +22,9 @@ img {
 a {
   text-decoration: none;
 }
+body {
+  /* overflow-y: hidden */
+}
 /*-----------------------variables-------------------------*/
 :root {
   font-family: Poppins, Arial, sans-serif;
@@ -40,15 +43,25 @@ a {
   --secondery-border-color: #ececec;
   --icons-border-color: #afb1b8;
 }
+.root {
+  display: flex;
+  width: 1480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+main {
+  width: 100%;
+  padding: 41px 95px 41px 71px;
+}
 
 /*---------------------------header__container----------------*/
 .header {
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 91vh;
   width: 306px;
-  padding: 36px 28px 36px 76px;
+  padding: 36px 28px;
 }
 .nav {
   display: flex;
@@ -177,6 +190,7 @@ a {
   display: flex;
   align-items: center;
   gap: 12px;
+  margin-bottom: 0px;
 }
 .header-container__user {
   display: flex;
@@ -192,3 +206,4 @@ a {
   font-weight: 400;
   color: #757575;
 }
+
