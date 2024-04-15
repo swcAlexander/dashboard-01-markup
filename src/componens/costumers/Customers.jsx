@@ -9,6 +9,9 @@ function Customers() {
   const usersPerPage = 8;
   const pagesVisited = pageNumber * usersPerPage;
   const pageCount = Math.ceil(data.length / usersPerPage);
+  // const onChangeStatus = (user)=> {
+  //   setData(user.Status = !user.Status)
+  // }
 
   const displayData = data
     .slice(pagesVisited, pagesVisited + usersPerPage)
@@ -19,7 +22,7 @@ function Customers() {
         <td>{user['Phone Number']}</td>
         <td>{user.Email}</td>
         <td>{user.Country}</td>
-        <td>{user.Status ? 'Active' : 'Inactive'}</td>
+        <td><button className={user.Status ? 'active-td' : 'inactive-td'}>{user.Status ? 'Active' : 'Inactive'}</button></td>
       </tr>
     ));
 
@@ -51,14 +54,18 @@ function Customers() {
         </thead>
         <tbody className='customers-section__table-body'>{displayData}</tbody>
       </table>
-      <ReactPaginate
-        previousLabel={'Previous'}
-        nextLabel={'Next'}
-        pageCount={pageCount}
-        onPageChange={changePage}
-        containerClassName={'pagination'}
-        activeClassName={'active'}
-      />
+      <div className='pagination-container'>
+        <p className='customers-section__paragraph'>Showing data 1 to 8 of  256K entries</p>
+        <ReactPaginate
+          previousLabel={'<'}
+          nextLabel={'>'}
+          pageCount={pageCount}
+          onPageChange={changePage}
+          containerClassName={'pagination'}
+          activeClassName={'active'}
+          className='paginate'
+        />
+      </div>
     </div>
   );
 }
